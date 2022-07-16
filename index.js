@@ -1,23 +1,23 @@
 
 
-function Main() {
+function NavBar() {
     return(
-
-            <h1>Main Component</h1>
-
-        )
+        <div>
+            <img src="./airbnb-logo.png" alt="AirBnb logo"></img>
+        </div>
+    )
 }
 
-function Page() {
+function App() {
     return(
-        <div className="Page">
-            <Main />
+        <div className="App">
+            <NavBar />
             <Name />
             <Buttons />
             <About />
             <Skills />
-
-        </div>)
+        </div>
+    )
 }
 
-ReactDOM.render(Page(), document.getElementById("root"))
+ReactDOM.render(App(), document.getElementById("root"))

@@ -4,6 +4,7 @@ function NavBar() {
     return(
         <div>
             <img src="./airbnb-logo.png" alt="AirBnb logo"></img>
+            <p>Main Page</p>
         </div>
     )
 }

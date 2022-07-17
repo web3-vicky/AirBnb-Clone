@@ -48,12 +48,13 @@ function Cards(props) {
 
     return(
     <div className="Cards">
-        <img src={props.img} className="card-img" />
+        {props.openSpots === 0 && <div className="card-badge">SOLD OUT</div>}
+        <img src={props.coverImg} className="card-img" />
         <div className="card-stats">
             <img src="./star.png" className="card-star" /> 
-            <span>{props.rating} </span>
-            <span className="gray">({props.upvotes}) ▪️ </span>
-            <span className="gray"> {props.country}</span>
+            <span>{props.stats.rating} </span>
+            <span className="gray">({props.stats.reviewCount}) ▪️ </span>
+            <span className="gray"> {props.location}</span>
         </div>  
         <p>{props.title}</p>
         <p><span className="bold">From ${props.price}</span> / person</p>
@@ -83,19 +84,17 @@ function NavBar() {
 function App() {
     const cards = data.map(item => {
         return <Cards
-                    img={item.coverImg}
-                    rating={item.stats.rating}
-                    upvotes={item.stats.reviewCount}
-                    country={item.location}
-                    title={item.title}
-                    price={item.price}                    
+                    key={item.id}
+                    {...item}                
                 />
     })
     return(
         <div className="App">
             <NavBar />
             <Hero />
-            {cards}
+            <section className="cards-list">
+                {cards}
+            </section>
         </div>
     )
 }

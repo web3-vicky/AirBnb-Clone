@@ -44,11 +44,8 @@ const data = [
 
 
 function Cards(props) {
-
-
     return(
     <div className="Cards">
-        {props.openSpots === 0 && <div className="card-badge">SOLD OUT</div>}
         <img src={props.coverImg} className="card-img" />
         <div className="card-stats">
             <img src="./star.png" className="card-star" /> 

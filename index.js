@@ -1,15 +1,15 @@
-function Card() {
+function Card(props) {
     return(
     <div className="Card">
-        <img src="./katie-zaferes.png" alt="Katie Zaferes" className="card-katie" />
+        <img src={props.img} alt="Katie Zaferes" className="card-katie" />
         <div className="card-stats">
             <img src="./star.png" className="card-star" /> 
-            <span>5.0</span>
-            <span className="gray">(6) ▪️ </span>
-            <span className="gray"> USA</span>
+            <span>{props.rating} </span>
+            <span className="gray">({props.upvotes}) ▪️ </span>
+            <span className="gray"> {props.country}</span>
         </div>  
-        <p>Life Lessons with Katie Zaferes</p>
-        <p><span className="bold">From $136</span> / person</p>
+        <p>{props.subject}</p>
+        <p><span className="bold">From ${props.price}</span> / person</p>
     </div>
     )
 }
@@ -38,7 +38,14 @@ function App() {
         <div className="App">
             <NavBar />
             <Hero />
-            <Card />
+            <Card 
+            img="./katie-zaferes.png"
+            rating="5.0"
+            upvotes={6}
+            country="USA"
+            subject="Life Lessons with Katie Zaferes"
+            price={136}
+            />
         </div>
     )
 }
